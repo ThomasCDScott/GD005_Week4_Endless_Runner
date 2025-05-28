@@ -2,22 +2,32 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject obsticale;
+    public GameObject obstacle;
     public Vector3 spawnPostion;
-    public float delayTime = 5f;
-    public float spawnInterval;
-    public float startDelay;
+    public PlayerMovement _playerMovement;
+    private PlayerMovement playerControllerScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("spawnObsticale" ,3, 2);
-        InvokeRepeating("Obsticale", startDelay, spawnInterval);
-        Invoke("DestroyObject", delayTime);
+        InvokeRepeating("spawnObstacle", 3, 2);
+        playerControllerScript = gameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
+   
+
     // Update is called once per frame
-    void Update()
+    void spawnObstacle()
     {
-        Instantiate(obsticale, spawnPostion, obsticale.transform.rotation);
+        Instantiate(obstacle, spawnPostion, obstacle.transform.rotation);
+    }
+
+    private void Update()
+    {
+        if (_playerMovement.isGameOver == true)
+        {
+            CancelInvoke("spawnObstacle");
+        }
+
     }
 }
