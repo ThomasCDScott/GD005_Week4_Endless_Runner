@@ -10,12 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dirtParticle; 
     public bool isGameOver = false;
     private bool isOnGround;
+    private Animator anim;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        anim = GetComponent<Animator>();
         Physics.gravity *= gravityModifier;
     }
 
@@ -24,12 +25,12 @@ public class PlayerMovement : MonoBehaviour
     {
         //We are using impulse as is it works best for jumping.  
        if(Input.GetButtonDown("Jump") && canJump && isOnGround && !isGameOver) { dirtParticle.Stop(); }
-       {
-          
-           rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        {
+
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             canJump = false;
-            
-       }
+            anim.SetTrigger("Jump_trig");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
             isGameOver = true;
             Debug.Log("Game Over!");
         }
+        anim.SetBool("Death_b", true);
+        anim.SetInteger("DeathType_int", 1);
     }
 
   //  private void OnCollisionExit(Collision collision)

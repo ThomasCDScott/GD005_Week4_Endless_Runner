@@ -11,6 +11,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("spawnObstacle", 3, 2);
+        
         playerControllerScript = gameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
@@ -24,6 +25,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+
         if (_playerMovement.isGameOver == true)
         {
             CancelInvoke("spawnObstacle");

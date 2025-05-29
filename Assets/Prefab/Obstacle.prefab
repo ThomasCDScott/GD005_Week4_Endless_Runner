@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6894262834016955126}
   - component: {fileID: 6467932302312832391}
   - component: {fileID: 2201928261493835903}
+  - component: {fileID: -5146470331945222818}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -63,11 +64,38 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0822525, y: 2.529728, z: 3.6495352}
-  m_Center: {x: 33.840652, y: 0.76486397, z: -0.074968815}
+  m_Size: {x: 0.5205078, y: 2.4040508, z: 3.6495352}
+  m_Center: {x: 33.896397, y: 0.7020254, z: -0.074968815}
+--- !u!54 &-5146470331945222818
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169838102094804210}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4288854737251998389
 GameObject:
   m_ObjectHideFlags: 0

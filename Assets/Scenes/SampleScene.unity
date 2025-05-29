@@ -266,6 +266,8 @@ GameObject:
   m_Component:
   - component: {fileID: 406306617}
   - component: {fileID: 406306616}
+  - component: {fileID: 406306619}
+  - component: {fileID: 406306618}
   m_Layer: 0
   m_Name: Background_City
   m_TagString: Untagged
@@ -343,6 +345,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &406306618
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406306615}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 112.79999, y: 18.781641, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &406306619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406306615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28690ed7519717b43ad62cdf4598f768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,8 +513,8 @@ GameObject:
   - component: {fileID: 546626365}
   - component: {fileID: 546626364}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Ground
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,9 +625,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1fbcf032a17c14fba3333290dff2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 5
-  gravityModifier: 15
+  jumpForce: 15
+  gravityModifier: 3
   canJump: 1
+  dirtParticle: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
+  isGameOver: 0
 --- !u!54 &605269651
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -615,10 +653,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 122
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!136 &605269652
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -703,13 +741,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bob
       objectReference: {fileID: 0}
+    - target: {fileID: 100066, guid: 3afad42cab5a57a4c9f19f8deaaf8689, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 3afad42cab5a57a4c9f19f8deaaf8689, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.141985
       objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 3afad42cab5a57a4c9f19f8deaaf8689, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.99
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 3afad42cab5a57a4c9f19f8deaaf8689, type: 3}
       propertyPath: m_LocalPosition.z
@@ -742,6 +784,10 @@ PrefabInstance:
     - target: {fileID: 400066, guid: 3afad42cab5a57a4c9f19f8deaaf8689, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 3afad42cab5a57a4c9f19f8deaaf8689, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -817,11 +863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ea92aa3f9bd694c9334bfc12c8f2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsticale: {fileID: 0}
-  spawnPostion: {x: 0, y: 0, z: 0}
-  delayTime: 5
-  spawnInterval: 3
-  startDelay: 2
+  obstacle: {fileID: 1169838102094804210, guid: 43226f0be2560c24992066cc1d42f629, type: 3}
+  spawnPostion: {x: 70, y: 0.81, z: 3.18}
+  _playerMovement: {fileID: 605269650}
 --- !u!4 &1767324289
 Transform:
   m_ObjectHideFlags: 0
